@@ -197,7 +197,7 @@ export const Profile2 = ({ match }) => {
                               color="primary"
                               gutterBottom
                             >
-                              Admin
+                              Student
                             </Typography>
                           )}
                           {userContext.user.role === 1 && (

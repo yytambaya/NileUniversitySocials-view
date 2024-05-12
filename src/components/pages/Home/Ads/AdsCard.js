@@ -46,7 +46,7 @@ export const AdsCard = ({ ads }) => {
           show={showAds}
           handleModal={handleModalAds}
           postFunction={adsContext.updatePost}
-          modalTitle="Update post"
+          modalTitle="Update announcement"
           post={ads}
         />
       )}
@@ -54,7 +54,7 @@ export const AdsCard = ({ ads }) => {
         avatar={
           <Avatar alt={ads.user.name} src={`${API}/pic/user/${ads.user._id}`} />
         }
-        action={
+        /*action={
           <>
             <IconButton aria-label="settings" onClick={handleMoreOption}>
               <MoreHorizIcon />
@@ -86,7 +86,7 @@ export const AdsCard = ({ ads }) => {
               <MenuItem onClick={handleClose}>Report Post</MenuItem>
             </Menu>
           </>
-        }
+        }*/
         title={
           <b
             style={{ cursor: "pointer" }}

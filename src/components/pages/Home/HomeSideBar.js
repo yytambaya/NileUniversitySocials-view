@@ -43,9 +43,9 @@ export const HomeSideBar = () => {
               primary={<b>{authContext.user.name}</b>}
               secondary={
                 <Typography variant="subtitle2" color="textSecondary">
-                  {authContext.user.role === 0 && "Admin"}
-                  {authContext.user.role === 1 && "Faculty"}
-                  {authContext.user.role === 2 && "Admin"}
+                  {authContext.user.role === 0 && "Student"}
+                  {authContext.user.role === 1 && "Student"}
+                  {authContext.user.role === 2 && "Student"}
                 </Typography>
               }
             />
@@ -94,7 +94,12 @@ export const HomeSideBar = () => {
             />
           </ListItem>
           
-          <ListItem button>
+          <ListItem 
+          button
+          onClick={() => {
+            history.push("/ideas")
+          }}
+          >
             <ListItemIcon>
               <Highlight />
             </ListItemIcon>

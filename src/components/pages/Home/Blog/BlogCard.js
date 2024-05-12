@@ -137,20 +137,15 @@ export const BlogCard = ({ blog }) => {
           show={showBlog}
           handleModal={handleModalBlog}
           blogFunction={blogContext.updateBlog}
-          modalTitle="Update blog"
+          modalTitle="Update event"
           blog={blog}
         />
       )}
       <Card variant="elevation" elevation={3} className="mb-3">
         <CardHeader
           className="pt-3 pb-0"
-          avatar={
-            <Avatar
-              alt={blog.user.name}
-              src={`${API}/pic/user/${blog.user._id}`}
-            />
-          }
-          action={
+          
+          /*action={
             <>
               <IconButton aria-label="settings" onClick={handleMoreOption}>
                 <MoreHorizIcon />
@@ -176,13 +171,10 @@ export const BlogCard = ({ blog }) => {
                     Delete
                   </MenuItem>
                 ) : null}
-                <MenuItem onClick={handleClose}>Share</MenuItem>
-                <MenuItem onClick={handleClose}>Bookmark</MenuItem>
-
-                <MenuItem onClick={handleClose}>Report blog</MenuItem>
+                
               </Menu>
             </>
-          }
+          }*/
           title={
             <b
               style={{ cursor: "pointer" }}
@@ -190,19 +182,14 @@ export const BlogCard = ({ blog }) => {
                 history.push(`/profile/${blog.user._id}`)
               }}
             >
-              {blog.user.name}
+              {blog.title}
             </b>
           }
-          subheader={<Moment fromNow>{blog.createdAt}</Moment>}
+          subheader={blog.content}
+          
         />
 
         <CardContent>
-          <Typography variant="subtitle2" component="p">
-            <b>{blog.title}</b>
-          </Typography>
-          <Typography variant="subtitle2" component="p">
-            {blog.content}
-          </Typography>
           <Typography variant="subtitle2" component="p">
             {"Date: " + blog.date?.substring(0,10)}
           </Typography>

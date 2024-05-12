@@ -181,7 +181,7 @@ import {
                       shrink: true,
                     }}
                     fullWidth
-                    label="Roll No."
+                    label="Reg No."
                     className="mt-3"
                   />
                 </Grid>

@@ -28,7 +28,7 @@ export const Home = ({ children }) => {
           </Grid>
           <Grid item md={9}>
             <div id="home-center-wrapper">
-              <InputBox />
+              {/*<InputBox />*/}
               {children}
             </div>
           </Grid>

@@ -63,7 +63,7 @@ export const SettingsPrivacy = () => {
                       component="h2"
                       className="pb-4"
                     >
-                      {"General Account Settings"}
+                      {"Account Profile & Settings"}
                     </Typography>
                     <ul className="settings-ul">
                       <li className="py-2">
@@ -82,7 +82,7 @@ export const SettingsPrivacy = () => {
                       <li className="py-2">
                         <Grid container spacing={3}>
                           <Grid item xs={3}>
-                            <Typography variant="button">Roll No.</Typography>
+                            <Typography variant="button">Reg No.</Typography>
                           </Grid>
                           <Grid item xs={9}>
                             <Typography variant="subtitle2">
@@ -117,10 +117,10 @@ export const SettingsPrivacy = () => {
                           </Grid>
                           <Grid item xs={2}>
                             <a href="#">
-                              <Typography className="text-right">
+                              {/*<Typography className="text-right">
                                 <FontAwesomeIcon icon={faEdit} />
                                 {" Reset"}
-                              </Typography>
+                              </Typography>*/}
                             </a>
                           </Grid>
                         </Grid>

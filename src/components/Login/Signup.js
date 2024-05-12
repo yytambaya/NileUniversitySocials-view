@@ -127,7 +127,7 @@ export const Signup = () => {
                         <TextField
                           name="rollno"
                           variant="outlined"
-                          label="Roll no"
+                          label="Reg no"
                           size="small"
                           value={inputValues.rollno}
                           onChange={handleChange}
@@ -253,7 +253,7 @@ export const Signup = () => {
                 <Typography variant="button" color="textSecondary">
                   Signup as{" "}
                   <Typography variant="button" color="textPrimary">
-                    Campus Admin
+                    Campus Student
                   </Typography>
                 </Typography>
               </Button>
