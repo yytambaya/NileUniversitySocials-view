@@ -36,7 +36,7 @@ export const PollCard = () => {
   }, [])
   // console.log(pollContext.polls)
 
-  const handlePollClick = async (e, typeOf, pollId) => {
+  const handlePollClick = async (e, typeOf, pollId, option) => {
     setResponseValue({
       ...responseValue,
       loading: true,
@@ -44,7 +44,7 @@ export const PollCard = () => {
     try {
       let response
       if (typeOf === "yes") {
-        response = await pollContext.markPollYes(authContext.user._id, pollId)
+        response = await pollContext.markPollYes(authContext.user._id, pollId, option)
       }
       if (typeOf === "no") {
         response = await pollContext.markPollNo(authContext.user._id, pollId)
@@ -108,11 +108,12 @@ export const PollCard = () => {
                             <Button
                               variant="text"
                               size="small"
+                              className="mt-2 ml-3 bg-success text-white"
                               onClick={(e) =>
                                 handlePollClick(e, "skip", poll._id)
                               }
                             >
-                              Skip
+                              Next
                             </Button>
                           ) : (
                             <Button
@@ -162,26 +163,61 @@ export const PollCard = () => {
                           Loading
                         </Button>
                       )}
-                      {responseValue.loading ? null : !showResult ? (
+                      {responseValue.loading ? null : !showResult ? 
+                      
+                      (
                         <ButtonGroup
-                          className="p-1"
+                          className="p-1 flex flex-column"
                           fullWidth
                           variant="outlined"
                         >
-                          <Button
+                          {poll?.option1?.name && <Button
+                            className=" mb-3"
                             size="small"
-                            onClick={(e) => handlePollClick(e, "yes", poll._id)}
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option1')}
                           >
-                            Yes
-                          </Button>
-                          <Button
+                            {poll?.option1?.name}
+                          </Button>}
+                          {poll?.option2?.name && <Button
+                            className=" mb-3"
                             size="small"
-                            onClick={(e) => handlePollClick(e, "no", poll._id)}
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option2')}
                           >
-                            No
-                          </Button>
+                            {poll?.option2?.name}
+                          </Button>}
+                          {poll?.option3?.name && <Button
+                            className=" mb-3"
+                            size="small"
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option3')}
+                          >
+                            {poll?.option3?.name}
+                          </Button>}
+                          {poll?.option4?.name && <Button
+                            className=" mb-3"
+                            size="small"
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option4')}
+                          >
+                            {poll?.option4?.name}
+                          </Button>}
+                          {poll?.option5?.name && <Button
+                            className=" mb-3"
+                            size="small"
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option5')}
+                          >
+                            {poll?.option5?.name}
+                          </Button>}
+
+                          {poll?.option6?.name && <Button
+                            className=" mb-3"
+                            size="small"
+                            onClick={(e) => handlePollClick(e, "yes", poll._id, 'option6')}
+                          >
+                            {poll?.option6?.name}
+                          </Button>}
                         </ButtonGroup>
-                      ) : (
+                      ) 
+                      
+                      : (
                         <div
                           className="px-1"
                           style={{

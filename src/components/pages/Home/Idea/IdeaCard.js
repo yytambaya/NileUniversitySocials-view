@@ -45,15 +45,18 @@ import {
     const ideaContext = useContext(IdeaContext)
     const [vote, setVote] = useState(false)
     const [comment, setComment] = useState("")
-    const [shareCount, setShareCount] = useState(idea.shareCount)
-    const [countVote, setCountVote] = useState(idea.upvotes.length)
+    //const [shareCount, setShareCount] = useState(idea.shareCount)
+    //const [countVote, setCountVote] = useState(idea.upvotes.length)
     const [moreOption, setMoreOption] = useState(null)
+    
     const handleMoreOption = (e) => {
       setMoreOption(e.currentTarget)
     }
+    
     const [bookmarkStatus, setBookmarkStatus] = useState(false)
     const [sendBtnColor, setSendBtnColor] = useState("grey")
-    useEffect(() => {
+    
+    /*useEffect(() => {
       idea.upvotes.filter((likeId) => {
         if (likeId === authContext.user._id) {
           setVote(true)
@@ -74,6 +77,7 @@ import {
         setVote(false)
       }
     }
+
     useEffect(() => {
       if (!userContext.loading) {
         // console.log(userContext.user.bookmark.idea)
@@ -101,7 +105,7 @@ import {
         userContext.unBookmarkItem(authContext.user._id, formData)
         setBookmarkStatus(false)
       }
-    }
+    }*/
   
     const open = Boolean(moreOption)
     const handleClose = () => {
@@ -119,7 +123,7 @@ import {
       setExpanded(!expanded)
     }
   
-    const handleCommentSend = async () => {
+    /*const handleCommentSend = async () => {
       if (comment.length > 0) {
         await ideaContext.addComment(idea._id, authContext.user._id, comment)
       }
@@ -129,7 +133,8 @@ import {
       const response = await ideaContext.countShare(idea._id)
       setShareCount(response.shareCount)
       console.log(response)
-    }
+    }*/
+
     return (
       <>
         {showIdea && (
@@ -145,7 +150,7 @@ import {
           <CardHeader
             className="pt-3 pb-0"
             
-            /*action={
+            action={
               <>
                 <IconButton aria-label="settings" onClick={handleMoreOption}>
                   <MoreHorizIcon />
@@ -174,7 +179,7 @@ import {
                   
                 </Menu>
               </>
-            }*/
+            }
             title={
               <b
                 style={{ cursor: "pointer" }}
@@ -191,12 +196,7 @@ import {
   
           <CardContent>
             <Typography variant="subtitle2" component="p">
-              {"Date: " + idea.date?.substring(0,10)}
-            </Typography>
-            <Typography variant="subtitle2" component="p">
-              {"Time: " + idea.time}
-            </Typography><Typography variant="subtitle2" component="p">
-              {"Location:" +  idea.location}
+              {"submitted on: " + idea.createdAt?.substring(0,10)}
             </Typography>
   
           </CardContent>
